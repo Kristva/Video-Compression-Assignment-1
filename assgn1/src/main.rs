@@ -205,6 +205,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                         pixel_difference_pdfs[ctx].incr_count(&decoded_pixel_difference);
 
                         let pixel_value = (left_pixel + decoded_pixel_difference) % 256;
+                        prior_frame[pixel_index] = pixel_value as u8;
 
                         if pixel_value != current_frame[pixel_index] as i32 {
                             println!(
